@@ -3,6 +3,20 @@ import Stock from '../components/Stock'
 
 class StockContainer extends Component {
 
+  state = {
+    stockIndex: []
+  }
+
+  componentDidMount() {
+    this.fetchIndex()
+  }
+  
+  fetchIndex = () => {
+    fetch('http://localhost:3000/stocks')
+    .then(resp => resp.json())
+    .then(stocks => console.log(stocks))
+  }
+
   render() {
     return (
       <div>
